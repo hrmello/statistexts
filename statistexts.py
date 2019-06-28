@@ -71,11 +71,12 @@ def count_words(text):
         number_of_chars = len(word)
         length_count[number_of_chars]+=1
 
-    plt.figure(figsize=(15,8))
+    fig = plt.figure(figsize=(15,8))
     sb.barplot(x = list(length_count.keys()), y = list(length_count.values()))
     plt.xlabel("Length of words", fontsize = 15)
     plt.ylabel("# of times of occurrence", fontsize = 15)
     plt.title("How many words of each length are there in the text", fontsize = 25)
+    fig.savefig("plots/length_count.jpg")
     
     return length_count
     
@@ -107,7 +108,7 @@ def main():
 	
 	tokens, text = tokenize(stop_words = sw, txt_file = read_written)
 	 
-	#plot_functions.plot_dispersion(text, ['capitu', 'bentinho'])
+	plot_functions.plot_dispersion(text, ['capitu', 'bentinho', 'padre'])
 
 	print("#### Now computing some statistics ####")
 	print("Computing TTR:")
